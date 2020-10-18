@@ -32,7 +32,7 @@ async fn get_book_by_slug(
     let offset = qs.get("offset").unwrap_or("0");
     let offset: i32 = offset.parse().unwrap();
 
-    let result = Book::find_by_slug(pool.get_ref(), &slug, books.get_ref(), offset, limit).await;
+    let result = Book::find_by_slug(pool.get_ref(), books.get_ref(), &slug, offset, limit).await;
     match result {
         Ok(books) => HttpResponse::Ok().json(books),
         Err(e) => HttpResponse::from(e),

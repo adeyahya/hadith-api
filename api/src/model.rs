@@ -79,8 +79,8 @@ impl Book {
 
     pub async fn find_by_slug(
         pool: &PgPool,
-        slug: &str,
         books: &BookMap,
+        slug: &str,
         offset: i32,
         limit: i32,
     ) -> Result<HadithPagination, Error> {
