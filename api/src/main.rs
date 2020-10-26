@@ -46,7 +46,7 @@ async fn main() -> std::io::Result<()> {
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set in .env file");
     let db_pool = PgPool::connect(&database_url).await.unwrap();
 
-    // fetch all books as in memory cache
+    // store all books in memory
     let mut books: HashMap<String, Book> = HashMap::new();
     let recs = sqlx::query!(
         r#"

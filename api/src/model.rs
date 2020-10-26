@@ -132,22 +132,3 @@ impl Book {
         }
     }
 }
-
-// impl Hadiths {
-//     pub async paginate(books: &BookMap, pool: &PgPool, slug: &str, offset: i32, limit: i32) -> Result<Hadiths> {
-//        let recs = sqlx::query!(
-//             r#"
-//                 SELECT number, indonesian, arabic
-//                     FROM hadiths
-//                     WHERE book_id = $1
-//                 ORDER BY number
-//                 LIMIT $2
-//                 OFFSET $3
-//             "#,
-//             book_id,
-//             limit,
-//             offset
-//         ).fetch_all(pool)
-//            .await?;
-//     }
-// }
